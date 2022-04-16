@@ -139,11 +139,12 @@ new Vue({
             let salarioLiquido = 0
             if (this.tipoSalario === 'clt') {
                 salarioLiquido = Number(this.salarioBruto) - Number(this.taxaTotalINSS) - Number(this.taxaTotalIRRF)
+                this.totalDescontos = Number(this.taxaTotalINSS) + Number(this.taxaTotalIRRF)
             } else if (this.tipoSalario === 'pj') {
                 salarioLiquido = Number(this.salarioBruto) - Number(this.taxaTotalIRRF)
+                this.totalDescontos = Number(this.taxaTotalIRRF)
             }
             this.salarioLiquido = salarioLiquido.toFixed(2).replace('.', ',')
-            this.totalDescontos = Number(this.taxaTotalINSS) + Number(this.taxaTotalIRRF)
         },
         calculaNovamente() {
             this.salarioBruto = ''
