@@ -129,18 +129,21 @@ new Vue({
         // },
 
         calculaSalarioLiq() {
-            this.calculaAliquotaINSS()
-            this.calculaFaixasINSS()
-            this.calculaAliquotaEfetivaINSS()
-            this.calculaAliquotaIRRF()
-            this.calculaFaixasIRRF()
-            this.calculaAliquotaEfetivaIRRF()
             this.running = false
             let salarioLiquido = 0
             if (this.tipoSalario === 'clt') {
+                this.calculaAliquotaINSS()
+                this.calculaFaixasINSS()
+                this.calculaAliquotaEfetivaINSS()
+                this.calculaAliquotaIRRF()
+                this.calculaFaixasIRRF()
+                this.calculaAliquotaEfetivaIRRF()
                 salarioLiquido = Number(this.salarioBruto) - Number(this.taxaTotalINSS) - Number(this.taxaTotalIRRF)
                 this.totalDescontos = Number(this.taxaTotalINSS) + Number(this.taxaTotalIRRF)
             } else if (this.tipoSalario === 'pj') {
+                this.calculaAliquotaIRRF()
+                this.calculaFaixasIRRF()
+                this.calculaAliquotaEfetivaIRRF()
                 salarioLiquido = Number(this.salarioBruto) - Number(this.taxaTotalIRRF)
                 this.totalDescontos = Number(this.taxaTotalIRRF)
             }
