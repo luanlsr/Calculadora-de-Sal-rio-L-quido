@@ -1,0 +1,109 @@
+* {
+    background-color: rgb(255, 255, 255);
+}
+
+#app {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: sans-serif;
+}
+
+.calculadora {
+    background-color: #ddebea;
+    padding: 50px;
+    border-radius: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 20px;
+    box-shadow: 5px 5px 15px 5px #000000;
+}
+
+.salarioBruto {
+    margin: 10px 0 10px 0;
+    width: 300px;
+    height: 30px;
+    border-radius: 5px;
+    border: 3px solid blue;
+    padding-left: 20px;
+    font-size: 1.2rem;
+}
+
+.labelSalario {
+    background-color: #ddebea;
+    font-size: 1.6rem;
+}
+
+.radio {
+    background-color: #ddebea;
+}
+
+.radio label {
+    background-color: #ddebea;
+}
+
+.btn {
+    border: none;
+    width: 330px;
+    color: white;
+    font-size: 1.2rem;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 20px;
+    font-weight: bold;
+    padding: 20px;
+}
+
+
+.btn1 {
+    background-color: rgb(54, 151, 51);
+}
+
+.btn2 {
+    background-color: rgb(235, 48, 48);
+}
+
+.salarioLiquido {
+    background-color: green;
+    color: #000;
+    border-radius: 3px;
+    padding: 20px;
+    font-size: 3rem;
+    color: #fff;
+}
+
+.aliquotas {
+    background-color: #ddebea;
+    display: flex;
+}
+
+.aliquotas p {
+    background-color: rgb(248, 167, 167);
+    font-weight: bold;
+    padding: 10px;
+    color: #fff;
+}
+
+.aliquotas h3 {
+    text-align: center;
+}
+
+.INSS {
+    border-radius: 10px;
+    margin: 20px;
+    background-color: rgb(248, 167, 167);
+}
+
+.IRRF {
+    border-radius: 10px;
+    margin: 20px;
+    background-color: rgb(248, 167, 167);
+}
+
+.descontos {
+    border-radius: 10px;
+    padding: 15px;
+}

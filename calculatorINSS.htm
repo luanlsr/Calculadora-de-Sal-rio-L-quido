@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+
+    <title>Calculadora de Salário Líquido</title>
+</head>
+
+<body>
+    <div id="app">
+        <h1>Calculadora de Salário Líquido</h1>
+        <div class="calculadora">
+            <label class="labelSalario" for="salarioBruto">Insira o valor do salário bruto</label>
+            <input class="salarioBruto" id="salarioBruto" v-model="salarioBruto" type="text" placeholder="R$ 0,00">
+            <div class="radios">
+                <div class="radio"><input name="tipoSalario" value="clt" type="radio" v-model="tipoSalario" />
+                    <label for="clt">CLT</label>
+                </div>
+                <div class="radio"><input name="tipoSalario" value="pj" type="radio" v-model="tipoSalario" />
+                    <label for="pj">PJ</label></div>
+            </div>
+            <!-- <p>tipo: {{tipoSalario}}</p> -->
+            <button v-if="running" class="btn btn1" @click="calculaSalarioLiq">Calcular Salário Líquido</button>
+            <button v-else="running" class="btn btn2" @click="calculaNovamente">Calcular Novamente</button>
+            <div class="aliquotas">
+                <div v-if="tipoSalario === 'clt'" class="INSS">
+                    <h3 v-if="aliquotaINSS">INSS</h3>
+                    <p v-if="aliquotaINSS">Alíquota INSS: {{aliquotaINSS}}%</p>
+                    <p v-if="aliquotaEfetivaINSS">Alíquota Efetiva INSS: {{aliquotaEfetivaINSS}}%</p>
+                    <p v-if="taxaTotalINSS">Desconto Total do INSS: R${{taxaTotalINSS}}</p>
+                </div>
+                <div class="IRRF">
+                    <h3 v-if="aliquotaIRRF">IRRF</h3>
+                    <p v-if="aliquotaIRRF">Alíquota IRRF: {{aliquotaIRRF}}%</p>
+                    <p v-if="aliquotaEfetivaIRRF">Alíquota Efetiva IRRF: {{aliquotaEfetivaIRRF}}%</p>
+                    <p v-if="taxaTotalIRRF">Desconto Total do INSS: R${{taxaTotalIRRF}}</p>
+                </div>
+            </div>
+            <h4 class="descontos" v-if="totalDescontos">Total de Descontos: R${{totalDescontos}}</h4>
+            <h2 class="salarioLiquido" v-if="salarioLiquido">Salário Líquido: R${{salarioLiquido}}</h2>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+
+</html>
