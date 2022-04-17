@@ -20,7 +20,8 @@ new Vue({
         segundaFaixaIRRF: 0,
         terceiraFaixaIRRF: 0,
         quartaFaixaIRRF: 0,
-        totalDescontos: 0
+        totalDescontos: 0,
+        errorTipoSalario: null
     },
     methods: {
         calculaAliquotaINSS() {
@@ -124,10 +125,6 @@ new Vue({
             this.aliquotaEfetivaIRRF = aliquota.toFixed(2)
         },
 
-        // calculaTaxaIRRF() {
-        //     this.taxaTotalIRRF = (this.salarioBruto * (this.aliquotaIRRF / 100)) - this.taxaIRRF
-        // },
-
         calculaSalarioLiq() {
             this.running = false
             let salarioLiquido = 0
@@ -146,6 +143,8 @@ new Vue({
                 this.calculaAliquotaEfetivaIRRF()
                 salarioLiquido = Number(this.salarioBruto) - Number(this.taxaTotalIRRF)
                 this.totalDescontos = Number(this.taxaTotalIRRF)
+            } else if (this.tipoSalario !== 'pj' && this.tipoSalario !== 'clt') {
+                this.errorTipoSalario = 'Você deve selecionar o tipo de contrato'
             }
             this.salarioLiquido = salarioLiquido.toFixed(2).replace('.', ',')
         },
@@ -160,6 +159,7 @@ new Vue({
             this.aliquotaEfetivaINSS = 0
             this.aliquotaEfetivaIRRF = 0
             this.running = true
+            this.errorTipoSalario = null
         }
     }
 })

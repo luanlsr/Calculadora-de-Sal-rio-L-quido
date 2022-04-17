@@ -25,7 +25,6 @@
             </div>
             <!-- <p>tipo: {{tipoSalario}}</p> -->
             <button v-if="running" class="btn btn1" @click="calculaSalarioLiq">Calcular Salário Líquido</button>
-            <button v-else="running" class="btn btn2" @click="calculaNovamente">Calcular Novamente</button>
             <div class="aliquotas">
                 <div v-if="tipoSalario === 'clt'" class="INSS">
                     <h3 v-if="aliquotaINSS">INSS</h3>
@@ -40,8 +39,10 @@
                     <p v-if="taxaTotalIRRF">Desconto Total do IRRF: R${{taxaTotalIRRF}}</p>
                 </div>
             </div>
+            <p v-if="errorTipoSalario != null">error: {{errorTipoSalario}}</p>
             <h4 class="descontos" v-if="totalDescontos">Total de Descontos: R${{totalDescontos}}</h4>
             <h2 class="salarioLiquido" v-if="salarioLiquido">Salário Líquido: R${{salarioLiquido}}</h2>
+            <button v-if="!running" class="btn btn2" @click="calculaNovamente">Calcular Novamente</button>
         </div>
     </div>
 
